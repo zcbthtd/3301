@@ -1,0 +1,7 @@
+split_libraries_fastq.py \
+-m map_incomplete.tsv \
+-i seqprep_assembled.fastq.gz \
+-b seqprep_assembled.fastq_barcodes.fastq \
+-o ./slout -q 19 \
+--rev_comp_barcode \
+--rev_comp_mapping_barcodes
