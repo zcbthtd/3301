@@ -10,6 +10,6 @@ core_diversity_analyses.py \
 --recover_from_failure \
 -o ~/2018_02_smb/cdout \
 -i ~/2018_02_smb/otus/otu_table_mc2.biom \
--m ~/cbmucl04/2018_02_smb/map_incomplete.tsv \
+-m ~/2018_02_smb/map_incomplete.tsv \
 -t ~/2018_02_smb/otus/97_otus.tree \
 -e 749
