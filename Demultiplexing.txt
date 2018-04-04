@@ -1,3 +1,11 @@
+#!/bin/bash
+#SBATCH -t 1:00:00
+#SBATCH -n 24
+#SBATCH -p short
+module load eb
+module load Miniconda2
+source activate qiime1
+export TMPDIR=~/qiime_tmp
 split_libraries_fastq.py \
 -m map_incomplete.tsv \
 -i seqprep_assembled.fastq.gz \
