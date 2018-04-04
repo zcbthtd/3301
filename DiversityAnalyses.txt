@@ -8,8 +8,8 @@ source activate qiime1
 export TMPDIR=~/qiime_tmp
 core_diversity_analyses.y \
 --recover_from_failure \
--o cdout \
--i otus/otu_table.biom \
--m map_incomplete.tsv \
--t otus/97_otus.tree \
--e xxxx
+-o ~/2018_02_smb/cdout \
+-i ~/2018_02_smb/otus/otu_table_mc2.biom \
+-m ~/cbmucl04/2018_02_smb/map_incomplete.tsv \
+-t ~/2018_02_smb/otus/97_otus.tree \
+-e 749
