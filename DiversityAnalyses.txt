@@ -13,3 +13,4 @@ core_diversity_analyses.py \
 -m ~/2018_02_smb/map_incomplete.tsv \
 -t ~/2018_02_smb/otus/rep_set.tre \
 -e 749
+-a -O 2
