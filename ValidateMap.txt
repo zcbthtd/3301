@@ -1,0 +1,20 @@
+#!/bin/bash
+#SBATCH -t 30
+#SBATCH -n 24
+#SBATCH -p short
+
+# load modules to run python
+module load eb
+module load Miniconda2
+
+# loading virtualenv
+source activate qiime1
+
+# setting temporary directory
+export TMPDIR=~/qiime_tmp
+
+# validate mapping file
+time validate_mapping_file.py -m ~/2018_02_smb/map_incomplete.tsv -o ~/vmf
+
+# deactivating environment
+source deactivate
