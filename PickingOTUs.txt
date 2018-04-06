@@ -11,3 +11,4 @@ time pick_open_reference_otus.py \
 -o ~/2018_02_smb/SeqPrep_joined/otus \
 -r ~/2018_02_smb/SILVA \
 -a -O 24
+source deactivate
