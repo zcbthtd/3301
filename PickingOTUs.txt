@@ -9,6 +9,5 @@ export TMPDIR=~/qiime_tmp
 time pick_open_reference_otus.py \
 -i ~/2018_02_smb/SeqPrep_joined/slout/seqs.fna \
 -o ~/2018_02_smb/SeqPrep_joined/otus \
--r ~/2018_02_smb/SILVA \
 -a -O 24
 source deactivate
