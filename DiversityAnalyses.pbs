@@ -6,6 +6,7 @@ module load eb
 module load Miniconda2
 source activate qiime1
 export TMPDIR=~/qiime_tmp
+echo "core diversity analyses"
 time core_diversity_analyses.py \
 --recover_from_failure \
 -o ~/2018_02_smb/cdout \
