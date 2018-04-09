@@ -14,6 +14,7 @@ source activate qiime1
 export TMPDIR=~/qiime_tmp
 
 # validate mapping file
+echo "validate mapping file"
 time validate_mapping_file.py -m ~/2018_02_smb/map_incomplete.tsv -o ~/vmf
 
 # deactivating environment
