@@ -1,0 +1,4 @@
+assign_taxonomy_id_to_taxonomy_fp /home/cbmucl04/SILVA_128_QIIME_release/taxonomy/16S_only/97/consensus_taxonomy_all_levels.txt
+assign_taxonomy_reference_seqs_fp /home/cbmucl04/SILVA_128_QIIME_release/rep_set/rep_set_16S_only/97/97_otus_16S.fasta
+pick_otus_reference_seqs_fp /home/cbmucl04/SILVA_128_QIIME_release/rep_set/rep_set_16S_only/97/97_otus_16S.fasta
+pynast_template_alignment_fp /home/cbmucl04/SILVA_128_QIIME_release/rep_set_aligned/90/90_otus_aligned.fasta.gz
