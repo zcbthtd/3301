@@ -1,0 +1,55 @@
+#!/bin/bash
+#SBATCH -t 3:00:00
+#SBATCH -n 24
+#SBATCH -p normal
+
+echo "setting temporary directory"
+mkdir -p ~/qiime_tmp
+export TMPDIR=~/qiime_tmp
+
+echo "load modules"
+module load eb
+module load Miniconda2
+
+"load virtual environment"
+source deactivate
+source activate qiime1
+
+echo "validate mapping file"
+time validate_map.py \
+-i ~/16/map.tsv
+-o ~/16/vmf
+
+echo "demulitplexing and quality filtering"
+time split_libraries_fastq.py \
+-i ~/16/Read1.fastq.gz \
+-b ~/16/Index.fastq.gz \
+-m ~/16/map.tsv \
+-q 19 \
+-o ~/16/slout \
+--barcode_type 12 \
+--rev_comp_barcode \
+--rev_comp_mapping_barcodes
+
+echo "picking OTUs with Silva"
+time pick_closed_reference_otus.py \
+-i ~/16/slout/seqs.fna \
+-o ~/16/otus \
+-a -O 24
+
+echo "summarizing OTU table"
+time biom summarize-table \
+-i ~/16/otus/otu_table.biom
+
+echo "core diversity analyses"
+time core_diversity_analyses.py \
+--recover_from_failure \
+-i ~/16/otus/otu_table.biom \
+-m ~/16/map.tsv \
+-t ~/SILVA_128_QIIME_release/trees/97/97_otus.tre \
+-o ~/16/cdout \
+-e 30000 \
+-a -O 24
+
+echo "deactivate qiime"
+source deactivate
