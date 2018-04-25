@@ -17,8 +17,8 @@ source activate qiime1
 
 echo "validate mapping file"
 time validate_map.py \
--i ~/16/map.tsv
--o ~/16/vmf
+-i ~/17/map.tsv
+-o ~/17/vmf
 
 echo "demulitplexing and quality filtering"
 time split_libraries_fastq.py \
