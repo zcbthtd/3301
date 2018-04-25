@@ -1,1 +1,28 @@
-#!bash
+#!/bin/bash
+#SBATCH -t 30
+#SBATCH -n 24
+#SBATCH -p short
+
+echo "setting temporary directory"
+mkdir -p ~/qiime_tmp
+export TMPDIR=~/qiime_tmp
+
+echo "load modules"
+module load eb
+module load Miniconda2
+
+"load virtual environment"
+source deactivate
+source activate qiime1
+
+echo "compare category pH"
+time compare_categories.py \
+--method anosim \
+-i ~/18/cdout/bdiv_even30000/unweighted_unifrac_dm.txt \
+-m ~/18/map.tsv \
+-c SamplePh \
+-o ~/18/anosim_out \
+-n 99
+
+echo "deactivate qiime"
+source deactivate
