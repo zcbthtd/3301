@@ -15,7 +15,7 @@ echo "loading virtual environment"
 source deactivate
 source activate qiime1
 
-echo "validate mapping file
+echo "validate mapping file"
 time validate_map.py \
 -i ~/18/map.tsv
 -o ~/2018/vmf
