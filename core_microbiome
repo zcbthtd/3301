@@ -1,0 +1,25 @@
+#!/bin/bash
+#SBATCH -n 24
+#SBATCH -t 1:00:00
+#SBATCH -p normal
+
+echo "setting temporary directory"
+mkdir -p ~/qiime_tmp
+export TMPDIR=~/qiime_tmp
+
+echo "loading modules"
+module load eb
+module load Miniconda2
+
+echo "loading virtual environment"
+source deactivate
+source activate qiime1
+
+echo "compute core microbiome"
+compute_core_microbiome.py \
+-i ~/18x/otus/otu_table.biom \
+-o ~/18x/otu_table_core_1 \
+--max_fraction_for_core 1
+
+echo "deactivate virtual environment"
+source deactivate
