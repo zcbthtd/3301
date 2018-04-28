@@ -3,14 +3,15 @@
 #SBATCH -n 24
 #SBATCH -p short
 
-# load modules
+echo "set temporary directory"
+mkdir -p ~/qiime_tmp
+export TMPDIR=~/qiime_tmp
+
+echo "load modules"
 module load eb
 module load Miniconda2
 
-# set temporary directory
-export TMPDIR=~/qiime_tmp
-
-# activate virtual environment
+echo "load virtual environment"
 source deactivate
 source activate qiime1
 
@@ -21,5 +22,5 @@ time make_2d_plots.py \
 -m ~/18x/map_excl.tsv \
 -o ~/18x/2dplots
 
-# deactivate virtual environment
+# echo "deactivate virtual environment"
 source deactivate
