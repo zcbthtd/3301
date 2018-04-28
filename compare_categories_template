@@ -11,7 +11,7 @@ echo "load modules"
 module load eb
 module load Miniconda2
 
-"load virtual environment"
+echo "load virtual environment"
 source deactivate
 source activate qiime1
 
