@@ -22,5 +22,5 @@ time make_2d_plots.py \
 -m ~/18x/map_excl.tsv \
 -o ~/18x/2dplots
 
-# echo "deactivate virtual environment"
+echo "deactivate virtual environment"
 source deactivate
