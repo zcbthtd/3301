@@ -3,7 +3,7 @@
 #SBATCH -n 24
 #SBATCH -p normal
 
-echo "setting temporary directory"
+echo "set temporary directory"
 mkdir -p ~/qiime_tmp
 export TMPDIR=~/qiime_tmp
 
@@ -20,7 +20,7 @@ time validate_map.py \
 -i ~/17/map.tsv
 -o ~/17/vmf
 
-echo "demulitplexing and quality filtering"
+echo "demulitplex and quality filter"
 time split_libraries_fastq.py \
 -i ~/17/Read1.fastq.gz \
 -b ~/17/Index.fastq.gz \
@@ -31,13 +31,13 @@ time split_libraries_fastq.py \
 --rev_comp_barcode \
 --rev_comp_mapping_barcodes
 
-echo "picking OTUs with Silva"
+echo "pick OTUs with Silva"
 time pick_closed_reference_otus.py \
 -i ~/17/slout/seqs.fna \
 -o ~/17/otus \
 -a -O 24
 
-echo "summarizing OTU table"
+echo "summarize OTU table"
 time biom summarize-table \
 -i ~/17/otus/otu_table.biom
 
@@ -51,5 +51,5 @@ time core_diversity_analyses.py \
 -e 30000 \
 -a -O 24
 
-echo "deactivate qiime"
+echo "deactivate virtual environment"
 source deactivate
