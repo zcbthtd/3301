@@ -5,7 +5,7 @@
 #SBATCH -n 24
 #SBATCH -p normal
 
-# setting temporary director, loading QIIME
+# setting temporary directory, loading QIIME
 
 echo "set temporary directory"
 mkdir -p ~/qiime_tmp
