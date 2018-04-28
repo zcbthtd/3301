@@ -3,15 +3,15 @@
 #SBATCH -n 24
 #SBATCH -p normal 
 
-echo "setting temporary directory"
+echo "set temporary directory"
 mkdir -p ~/qiime_tmp
 export TMPDIR=~/qiime_tmp
 
-echo "loading modules"
+echo "load modules"
 module load eb
 module load Miniconda2
 
-echo "loading virtual environment"
+echo "load virtual environment"
 source deactivate
 source activate qiime1
 
@@ -20,7 +20,7 @@ time validate_map.py \
 -i ~/18/map.tsv
 -o ~/2018/vmf
 
-echo "joining paired reads with SeqPrep"
+echo "join paired reads with SeqPrep"
 time join_paired_ends.py \
 -m SeqPrep \
 -f ~/18/Read1.fastq.gz \
@@ -28,7 +28,7 @@ time join_paired_ends.py \
 -b ~/18/Index.fastq.gz \
 -o ~/jpe
 
-echo "demulitplexing and quality filtering"
+echo "demulitplex and quality filter"
 time split_libraries_fastq.py \
 -i ~/18/jpe/seqprep_assembled.fastq.gz \
 -b ~/18/jpe/seqprep_assembled.fastq_barcodes.fastq \
@@ -38,13 +38,13 @@ time split_libraries_fastq.py \
 --rev_comp_mapping_barcodes
 
 
-echo "picking OTUs with Silva"
+echo "pick OTUs with Silva"
 time pick_closed_reference_otus.py \
 -i ~/18/slout/seqs.fna \
 -o ~/18/otus \
 -a -O 24
 
-echo "summarizing OTU table"
+echo "summarize OTU table"
 time biom summarize-table \
 -i ~/18/otus/otu_table.biom
 
@@ -58,5 +58,5 @@ time core_diversity_analyses.py \
 -e 30000 \
 -a -O 24
 
-echo "deactivating qiime"
+echo "deactivate virtual environment"
 source deactivate
