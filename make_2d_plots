@@ -1,0 +1,25 @@
+#!/bin/bash
+#SBATCH -t 1:00:00
+#SBATCH -n 24
+#SBATCH -p short
+
+# load modules
+module load eb
+module load Miniconda2
+
+# set temporary directory
+export TMPDIR=~/qiime_tmp
+
+# activate virtual environment
+source deactivate
+source activate qiime1
+
+# create 2d plots from weighted unifrac distance matrix
+echo "2d plots"
+time make_2d_plots.py \
+-i ~/18x/cdout/bdiv_even30000/weighted_unifrac_pc.txt \
+-m ~/18x/map_excl.tsv \
+-o ~/18x/2dplots
+
+# deactivate virtual environment
+source deactivate
