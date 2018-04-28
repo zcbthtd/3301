@@ -3,15 +3,15 @@
 #SBATCH -t 1:00:00
 #SBATCH -p normal
 
-echo "setting temporary directory"
+echo "set temporary directory"
 mkdir -p ~/qiime_tmp
 export TMPDIR=~/qiime_tmp
 
-echo "loading modules"
+echo "load modules"
 module load eb
 module load Miniconda2
 
-echo "loading virtual environment"
+"load virtual environment"
 source deactivate
 source activate qiime1
 
