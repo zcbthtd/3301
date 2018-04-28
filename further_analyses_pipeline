@@ -1,0 +1,23 @@
+#!/bin/bash
+#SBATCH -t 3:00:00
+#SBATCH -n 24
+#SBATCH -p normal 
+
+echo "set temporary directory"
+mkdir -p ~/qiime_tmp
+export TMPDIR=~/qiime_tmp
+
+echo "load modules"
+module load eb
+module load Miniconda2
+
+echo "load virtual environment"
+source deactivate
+source activate qiime1
+
+core microbiome
+
+2d plots
+
+summarize taxa
+
