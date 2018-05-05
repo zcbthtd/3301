@@ -3,23 +3,24 @@
 #SBATCH -n 24
 #SBATCH -p normal
 
-echo "set temporary directory"
+# setting temporary directory
 mkdir -p ~/qiime_tmp
 export TMPDIR=~/qiime_tmp
 
-echo "load modules"
+# loading modules
 module load eb
 module load Miniconda2
 
-echo "load virtual environment"
+# loading virtual environment
 source deactivate
 source activate qiime1
 
-echo "validate mapping file"
+# validating mapping file
 time validate_map.py \
 -i ~/16/map.tsv
 -o ~/16/vmf
 
+# demultiplexing and quality filtering
 echo "demulitplex and quality filter"
 time split_libraries_fastq.py \
 -i ~/16/Read1.fastq.gz \
@@ -31,16 +32,19 @@ time split_libraries_fastq.py \
 --rev_comp_barcode \
 --rev_comp_mapping_barcodes
 
+# picking OTUs with Silva reference database
 echo "pick OTUs with Silva"
 time pick_closed_reference_otus.py \
 -i ~/16/slout/seqs.fna \
 -o ~/16/otus \
 -a -O 24
 
+# summarizing OTU table generated
 echo "summarize OTU table"
 time biom summarize-table \
 -i ~/16/otus/otu_table.biom
 
+# running core diversity analyses
 echo "core diversity analyses"
 time core_diversity_analyses.py \
 --recover_from_failure \
@@ -51,5 +55,5 @@ time core_diversity_analyses.py \
 -e 30000 \
 -a -O 24
 
-echo "deactivate virtual environment"
+# deactivating virtual environment
 source deactivate
