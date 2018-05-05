@@ -1,1 +1,19 @@
-Contained within this folder are scripts used for data analysis carried out during the BIOC3301 metagenomic analysis project
+This folder contains all scripts used for data analysis carried out during the BIOC3301 metagenomic analysis project
+
+Core diversity analyses (generating OTU tables, rarefaction curves, PCoA plots) was carried out for 2018 data.
+Further similar analyses were carried out for 2016 and 2017 data.
+
+Further analyses carried out using 2018 data:
+core micrbiome
+2d plots
+compare categories (ANOSIM)
+group significance
+
+
+fiter taxa from otu table?
+observation metadata correlation?
+make otu heatmap?
+compare alpha diversity?
+summarize taxa through plots?
+jackknifed beta diversity?
+compare distance matrices?
