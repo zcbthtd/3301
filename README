@@ -13,6 +13,7 @@ group significance
 fiter taxa from otu table?
 observation metadata correlation?
 make otu heatmap?
+plot taxa summary?
 compare alpha diversity?
 summarize taxa through plots?
 jackknifed beta diversity?
