@@ -3,18 +3,19 @@
 #SBATCH -n 24
 #SBATCH -p short
 
-echo "set temporary directory"
+# setting temporary directory
 mkdir -p ~/qiime_tmp
 export TMPDIR=~/qiime_tmp
 
-echo "load modules"
+# loading modules
 module load eb
 module load Miniconda2
 
-echo "load virtual environment"
+# loading virtual environment
 source deactivate
 source activate qiime1
 
+# comparing pH
 echo "compare category pH"
 time compare_categories.py \
 --method anosim \
@@ -24,5 +25,5 @@ time compare_categories.py \
 -o ~/18/anosim_out \
 -n 99
 
-echo "deactivate virtual environment"
+# deactivating virtual environment
 source deactivate
