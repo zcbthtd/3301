@@ -1,0 +1,26 @@
+#!/bin/bash
+#SBATCH -t 1:00:00
+#SBATCH -n 24
+#SBATCH -p short
+
+# setting temporary directory
+mkdir -p ~/qiime_tmp
+export TMPDIR=~/qiime_tmp
+
+# loading modules
+module load eb
+module load Miniconda2
+
+# loading virtual environment
+source deactivate
+source activate qiime1
+
+echo "compare alpha diversity"
+compare_alpha_diversity.py \
+-i cdout_merged_acido/arare_max1723/alpha_div_collated/observed_otus.txt \
+-m map_merged.tsv \
+-c Year \
+-o compare_alpha_merged_Year
+
+# deactivating virtual environment
+source deactivate
