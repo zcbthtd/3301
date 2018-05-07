@@ -1,0 +1,26 @@
+#!/bin/bash
+#SBATCH -t 30
+#SBATCH -n 24
+#SBATCH -p short
+
+echo "setting temporary directory"
+mkdir -p ~/qiime_tmp
+export TMPDIR=~/qiime_tmp
+
+echo "loading modules and virtual environment"
+module load eb
+module load Miniconda2
+source deactivate
+source activate qiime1
+
+echo "compare categories"
+time compare_categories.py \
+--method anosim \
+-i ~/18x/cdout_merged_acido/bdiv_even1723/unweighted_unifrac_dm.txt \
+-m ~/18x/map_merged.tsv \
+-c Year \
+-o ~/18x/Year \
+-n 99
+
+# deactivating virtual environment
+source deactivate
