@@ -1,20 +1,34 @@
-This folder contains all scripts used for data analysis carried out during the BIOC3301 metagenomic analysis project
+README file describing scripts written and used for BIOC3301 metagenomic analysis project.
+Analysis pipeline is described in brief below.
+Subheadings (--- 2018, etc.) describe which dataset was used for each section of the analysis.
 
-Core diversity analyses (generating OTU tables, rarefaction curves, PCoA plots) was carried out for 2018 data.
-Further similar analyses were carried out for 2016 and 2017 data.
+--- 2018
+1.1. core diversity analyses                          (diversity_analyses_pipleline_2018.pbs)
+1.2. core microbiome calculated at 100% threshold     (compute_core_microbiome.pbs)
+1.3. 2D PCoA plots generated                          (make_2d_plots.pbs)
+1.4. compare categories: pH/N/P/K (ANOSIM)            (compare_categories.pbs)
+1.5. group significance: pH/N/P/K                     (group_significance.pbs)
+1.6. filtered data to get Adidobacteria only          (filter_taxa_from_otu_table.pbs)
 
-Further analyses carried out using 2018 data:
-core micrbiome
-2d plots
-compare categories (ANOSIM)
-group significance
+--- Acidbacteria phylum
+2.1. core diversity analyses                          (core_div_acido.pbs)
+2.2. compare categories: pH/N/P/L (ANOSIM)            (compare_categories_acido.pbs)
+2.3. group significance: pH/N/P/K                     (group_significance_acido.pbs)
 
+--- 2017
+3.1. core diversity analyses                          (diversity_analyses_pipeline_2017.pbs)
 
-fiter taxa from otu table?
-observation metadata correlation?
-make otu heatmap?
-plot taxa summary?
-compare alpha diversity?
-summarize taxa through plots?
-jackknifed beta diversity?
-compare distance matrices?
+--- 2016
+4.1. core diversity analyses                          (diversity_analyses_pipeline_2016.pbs)
+
+--- Collated data from 3 years
+5.1. OTU tables merged                                (merge_otu_tables.pbs)
+5.2. core diversity analyses                          (core_div_merged.pbs)
+5.3. filtered data to get Acidobacteria only          (filter_taxa_from_otu_table_merged.pbs)
+
+--- Acidobacteria phylum from collated data
+6.1. core diversity analyses                          (core_div_merged_acido.pbs)
+6.2. create box plots                                 (compare_alpha_merged_acido.pbs)
+6.3. compare categories: pH/N/P/K (ANOSIM)            (compare_categores_merged_acido.pbs)
+
+qiime_config file contains parameters set for picking OTUs with Silva.
