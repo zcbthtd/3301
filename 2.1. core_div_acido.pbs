@@ -1,0 +1,29 @@
+#!/bin/bash
+#SBATCH -t 2:00:00
+#SBATCH -n 24
+#SBATCH -p normal
+
+# setting temporary directory
+mkdir -p ~/qiime_tmp
+export TMPDIR=~/qiime_tmp
+
+# loading modules
+module load eb
+module load Miniconda2
+
+# loading virtual environment
+source deactivate
+source activate qiime1
+
+echo "Running core diversity analyses, 30k sampling depth, 97% silva reference tree"
+time core_diversity_analyses.py \
+--recover_from_failure \
+-o ~/18x/cdout_acido \
+-i ~/18x/otu_table_acidobacteria_only.biom \
+-m ~/18x/map_excl.tsv \
+-t ~/SILVA_128_QIIME_release/trees/97/97_otus.tre \
+-e 1723 \
+-a -O 24
+
+# deactivating virtual environment
+source deactivate
