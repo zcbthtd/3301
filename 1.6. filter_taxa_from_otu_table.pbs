@@ -1,0 +1,26 @@
+#!/bin/bash
+#SBATCH -t 30
+#SBATCH -n 24
+#SBATCH -p short
+
+# setting temporary directory
+mkdir -p ~/qiime_tmp
+export TMPDIR=~/qiime_tmp
+
+# loading modules
+module load eb
+module load Miniconda2
+
+# loading virtual environment
+source deactivate
+source activate qiime1
+
+# filtering taxa for Acidobacteria
+echo "filtering taxa"
+filter_taxa_from_otu_table.py \
+-i ~/18x/otus/otu_table.biom \
+-o otu_table_acidobacteria_only.biom \
+-p D_1__Acidobacteria
+
+# deactivating virtual environment
+source deactivate
