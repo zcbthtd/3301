@@ -1,0 +1,46 @@
+#!/bin/bash
+#SBATCH -n 24
+#SBATCH -t 1:00:00
+#SBATCH -p short
+
+#Load Modules
+module load eb
+module loade Miniconda2
+
+#loading virtual environment
+source activate qiime1
+
+#setting temporary directory
+export TMPDIR=~/qiime_tmp
+
+echo "group sig acido"
+group_significance.py \
+-i ~/18x/tax_mapping_acido/otu_table_acidobacteria_only_L2.biom \
+-m ~/18x/map_excl.tsv \
+-c SamplePh \
+-s kruskal_wallis \
+-o grp_sig_acido_pH.txt
+
+group_significance.py \
+-i ~/18x/tax_mapping_acido/otu_table_acidobacteria_only_L2.biom \
+-m ~/18x/map_excl.tsv \
+-c SampleNitrogen \
+-s kruskal_wallis \
+-o grp_sig_acido_N.txt
+
+group_significance.py \
+-i ~/18x/tax_mapping_acido/otu_table_acidobacteria_only_L2.biom \
+-m ~/18x/map_excl.tsv \
+-c SamplePhosphorus \
+-s kruskal_wallis \
+-o grp_sig_acido_P.txt
+
+group_significance.py \
+-i ~/18x/tax_mapping_acido/otu_table_acidobacteria_only_L2.biom \
+-m ~/18x/map_excl.tsv \
+-c SamplePotassium \
+-s kruskal_wallis \
+-o grp_sig_acido_K.txt
+
+# deactivating virtual environment
+source deactivate
