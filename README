@@ -1,7 +1,7 @@
 README file describing scripts written and used for BIOC3301 metagenomic analysis project.
 Analysis pipeline is described in brief below.
 Subheadings (e.g. --- 2018, etc.) describe which dataset was used for each section of the analysis.
-Reference no. (e.g. 1.1.) identifies script use, with brief explanation of its function.
+Reference no. (e.g. 1.1.) identifies script used, with brief explanation of its function. Further details can be found within files pertaining to each script.
 
 --- 2018
 1.1. diversity_analyses_pipleline_2018.pbs  :  core diversity analyses, generating OTU tables,
