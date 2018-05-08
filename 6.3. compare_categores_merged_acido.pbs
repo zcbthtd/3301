@@ -3,16 +3,17 @@
 #SBATCH -n 24
 #SBATCH -p short
 
-echo "setting temporary directory"
+# setting temporary directory
 mkdir -p ~/qiime_tmp
 export TMPDIR=~/qiime_tmp
 
-echo "loading modules and virtual environment"
+# loading modules and virtual environment
 module load eb
 module load Miniconda2
 source deactivate
 source activate qiime1
 
+# compare diversity of samples with respect to year
 echo "compare categories"
 time compare_categories.py \
 --method anosim \
