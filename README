@@ -4,32 +4,43 @@ Subheadings (e.g. --- 2018, etc.) describe which dataset was used for each secti
 Reference no. (e.g. 1.1.) identifies 
 
 --- 2018
-1.1. diversity_analyses_pipleline_2018.pbs  :  core diversity analyses, generating OTU tables, rarefaction curves, 3D PCoA plots
-1.2. compute_core_microbiome.pbs            :  core microbiome calculated at 100% threshold (OTU must be seen in 100% of samples to be considered core)
-1.3. make_2d_plots.pbs2D                    :  2D PCoA plots generated to supplement 3D plots
-1.4. compare_categories.pbs                 :  ANOSIM used to assess significance of change in diversity with respect to pH/N/P/K
-1.5. group_significance.pbs                 :  assessment of statistically significant differences between the OTU abundance with respect to pH/N/P/K
-1.6. filter_taxa_from_otu_table.pbs         :  OTU table data filtered to generate OTU table with Adidobacteria only
+1.1. diversity_analyses_pipleline_2018.pbs  :  core diversity analyses, generating OTU tables,
+                                               rarefaction curves, 3D PCoA plots.
+1.2. compute_core_microbiome.pbs            :  core microbiome calculated at 100% threshold (OTU
+                                               must be seen in 100% of samples to be considered core).
+1.3. make_2d_plots.pbs2D                    :  2D PCoA plots generated to supplement 3D plots.
+1.4. compare_categories.pbs                 :  ANOSIM used to assess significance of change in
+                                               diversity with respect to pH/N/P/K.
+1.5. group_significance.pbs                 :  assessment of statistically significant differences
+                                               between the OTU abundance with respect to pH/N/P/K.
+1.6. filter_taxa_from_otu_table.pbs         :  OTU table data filtered to generate OTU table with
+                                               Adidobacteria only.
 
 --- Acidbacteria phylum
-2.1. core_div_acido.pbs                     :  core diversity analyses (see above)
-2.2. compare_categories_acido.pbs           :  ANOSIM used to assess significance of change in Acidobacteria class-composition with respect to pH/N/P/K
-2.3. group_significance_acido.pbs           :  assessment of statistically significant differences in Acidbacteria class abundance with respect to pH/N/P/K
+2.1. core_div_acido.pbs                     :  core diversity analyses (see above).
+2.2. compare_categories_acido.pbs           :  ANOSIM used to assess significance of change in
+                                               Acidobacteria class-composition with respect to pH/N/P/K.
+2.3. group_significance_acido.pbs           :  assessment of statistically significant differences
+                                               in Acidbacteria class abundance with respect to pH/N/P/K.
 
 --- 2017
-3.1. diversity_analyses_pipeline_2017.pbs   :  core diversity analyses (see above)
+3.1. diversity_analyses_pipeline_2017.pbs   :  core diversity analyses (see above).
 
 --- 2016
-4.1. diversity_analyses_pipeline_2016.pbs   :  core diversity analyses (see above)
+4.1. diversity_analyses_pipeline_2016.pbs   :  core diversity analyses (see above).
 
 --- Collated data from 3 years
-5.1. merge_otu_tables.pbs                   :  OTU tables from all 3 years of study merged to form one OTU table
-5.2. core_div_merged.pbs                    :  core diversity analyses (see above)
-5.3. filter_taxa_from_otu_table_merged.pbs  :  merged OTU table data filtered to generate OTU table with Adidobacteria only
+5.1. merge_otu_tables.pbs                   :  OTU tables from all 3 years of study merged to form
+                                               one OTU table.
+5.2. core_div_merged.pbs                    :  core diversity analyses (see above).
+5.3. filter_taxa_from_otu_table_merged.pbs  :  merged OTU table data filtered to generate OTU
+                                               table with Adidobacteria only.
 
 --- Acidobacteria phylum from collated data
-6.1. core_div_merged_acido.pbs              :  core diversity analyses (see above)
-6.2. compare_alpha_merged_acido.pbs         :  created box plots to visulise changes in Acidobacteria abundance over 3 years
-6.3. compare_categores_merged_acido.pbs     :  ANOSIM used to measure significance of change in diversity with respect to year
+6.1. core_div_merged_acido.pbs              :  core diversity analyses (see above).
+6.2. compare_alpha_merged_acido.pbs         :  created box plots to visulise changes in
+                                               Acidobacteria abundance over 3 years.
+6.3. compare_categores_merged_acido.pbs     :  ANOSIM used to measure significance of change in
+                                               diversity with respect to year.
 
 qiime_config file contains parameters set for picking OTUs with Silva.
