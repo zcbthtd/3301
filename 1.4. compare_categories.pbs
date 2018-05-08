@@ -15,6 +15,8 @@ module load Miniconda2
 source deactivate
 source activate qiime1
 
+# ANOSIM used to assess the statistical significance of differences between sample diversity with respect to various metadata categories (pH/N/P/K)
+
 # comparing pH
 echo "compare category pH"
 time compare_categories.py \
@@ -22,6 +24,36 @@ time compare_categories.py \
 -i ~/18/cdout/bdiv_even30000/unweighted_unifrac_dm.txt \
 -m ~/18/map.tsv \
 -c SamplePh \
+-o ~/18/anosim_out \
+-n 99
+
+# comparing nitrogen
+echo "compare category N"
+time compare_categories.py \
+--method anosim \
+-i ~/18/cdout/bdiv_even30000/unweighted_unifrac_dm.txt \
+-m ~/18/map.tsv \
+-c SampleNitrogen \
+-o ~/18/anosim_out \
+-n 99
+
+# comparing phosphorus
+echo "compare category P"
+time compare_categories.py \
+--method anosim \
+-i ~/18/cdout/bdiv_even30000/unweighted_unifrac_dm.txt \
+-m ~/18/map.tsv \
+-c SamplePhosphorus \
+-o ~/18/anosim_out \
+-n 99
+
+# comparing potassium
+echo "compare category K"
+time compare_categories.py \
+--method anosim \
+-i ~/18/cdout/bdiv_even30000/unweighted_unifrac_dm.txt \
+-m ~/18/map.tsv \
+-c SamplePotassium \
 -o ~/18/anosim_out \
 -n 99
 
