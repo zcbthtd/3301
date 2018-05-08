@@ -1,0 +1,24 @@
+#!/bin/bash
+#SBATCH -n 24
+#SBATCH -t 1:00:00
+#SBATCH -p normal
+
+# loading modules
+module load eb
+module load Miniconda2
+
+#loading virtual environment
+source deactivate
+source activate qiime1
+
+#setting temporary directory
+export TMPDIR=~/qiime_tmp
+
+# making heatmap for all samples as phyla (L2) level
+echo "heatmap phyla level"
+make_otu_heatmap.py \
+-i ~/18x/tax_mapping/otu_table_L2.biom \
+-o ~/18x/heatmap_phyla.pdf \
+
+#deactivating qiime
+source deactivate
