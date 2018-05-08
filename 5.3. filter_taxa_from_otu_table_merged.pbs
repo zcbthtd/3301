@@ -15,7 +15,7 @@ module load Miniconda2
 source deactivate
 source activate qiime1
 
-# filtering taxa for Acidobacteria
+# filtering merged OTU table for Acidobacteria phylum
 echo "filtering taxa"
 filter_taxa_from_otu_table.py \
 -i ~/18x/merged_otu_table.biom \
