@@ -29,7 +29,7 @@ time join_paired_ends.py \
 -b ~/18/Index.fastq.gz \
 -o ~/jpe
 
-# demultiplexing and quality filtering
+# demultiplexing and quality filtering to remove lower quality reads
 echo "demulitplex and quality filter"
 time split_libraries_fastq.py \
 -i ~/18/jpe/seqprep_assembled.fastq.gz \
@@ -39,7 +39,7 @@ time split_libraries_fastq.py \
 --rev_comp_barcode \
 --rev_comp_mapping_barcodes
 
-# picking OTUs with Silva reference database
+# picking OTUs (at 97% sequence similarity), using Silva reference database (see qiime_config)
 echo "pick OTUs with Silva"
 time pick_closed_reference_otus.py \
 -i ~/18/slout/seqs.fna \
@@ -51,7 +51,7 @@ echo "summarize OTU table"
 time biom summarize-table \
 -i ~/18/otus/otu_table.biom
 
-# running core diversity analyses
+# running core diversity analyses (97% OTUs, 30,000 sequence sampling depth - samples with fewer sequences are excluded)
 echo "core diversity analyses"
 time core_diversity_analyses.py \
 --recover_from_failure \
