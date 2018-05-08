@@ -13,7 +13,7 @@ Reference no. (e.g. 1.1.) identifies script use, with brief explanation of its f
 1.4. compare_categories.pbs                 :  ANOSIM used to assess significance of change in
                                                diversity with respect to pH/N/P/K.
 1.5. group_significance.pbs                 :  assessment of statistically significant differences
-                                               between the OTU abundance with respect to pH/N/P/K.
+                                               between OTU abundance with respect to pH/N/P/K.
 1.6. filter_taxa_from_otu_table.pbs         :  OTU table data filtered to generate OTU table with
                                                Adidobacteria only.
 
