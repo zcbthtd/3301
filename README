@@ -15,7 +15,7 @@ Reference no. (e.g. 1.1.) identifies script use, with brief explanation of its f
 1.5. group_significance.pbs                 :  assessment of statistically significant differences
                                                between OTU abundance with respect to pH/N/P/K.
 1.6. filter_taxa_from_otu_table.pbs         :  OTU table data filtered to generate OTU table with
-                                               Adidobacteria only.
+                                               Adidobacteria phylum only.
 
 --- Acidbacteria phylum
 2.1. core_div_acido.pbs                     :  core diversity analyses (see above).
@@ -23,7 +23,7 @@ Reference no. (e.g. 1.1.) identifies script use, with brief explanation of its f
                                                Acidobacteria class-composition with respect to
                                                pH/N/P/K.
 2.3. group_significance_acido.pbs           :  assessment of statistically significant differences
-                                               in Acidbacteria class abundance with respect to
+                                               in Acidbacteria class-composition with respect to
                                                pH/N/P/K.
 
 --- 2017
