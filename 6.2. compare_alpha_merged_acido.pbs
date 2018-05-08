@@ -15,6 +15,7 @@ module load Miniconda2
 source deactivate
 source activate qiime1
 
+# alpha diversity of 2016, 2017 and 2018 samples assessed, with respect to year of samples
 echo "compare alpha diversity"
 compare_alpha_diversity.py \
 -i cdout_merged_acido/arare_max1723/alpha_div_collated/observed_otus.txt \
