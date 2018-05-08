@@ -15,7 +15,7 @@ module load Miniconda2
 source deactivate
 source activate qiime1
 
-# merge BIOM-formated tables
+# 2016, 2017 and 2018 BIOM-formated tables merged into single table
 merge_otu_tables.py \
 -i /home/cbmucl04/16/otus/otu_table.biom,/home/cbmucl04/17/otus/otu_table.biom,/home/cbmucl04/18x/otus/otu_table.biom \
 -o ~/18x/merged_otu_table.biom
