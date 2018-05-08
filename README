@@ -9,7 +9,7 @@ Reference no. (e.g. 1.1.) identifies script used, with brief explanation of its 
 1.2. compute_core_microbiome.pbs            :  core microbiome calculated at 100% threshold (OTU
                                                must be seen in 100% of samples to be considered
                                                core).
-1.3. make_2d_plots.pbs2D                    :  2D PCoA plots generated to supplement 3D plots.
+1.3. make_2d_plots.pbs                      :  2D PCoA plots generated to supplement 3D plots.
 1.4. compare_categories.pbs                 :  ANOSIM used to assess significance of change in
                                                diversity with respect to pH/N/P/K.
 1.5. group_significance.pbs                 :  assessment of statistically significant differences
